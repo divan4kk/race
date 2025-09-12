@@ -9,7 +9,7 @@ Eine moderne, schnelle und stylische Homepage, die meine Projekte und Interessen
 
 # F1 Rene Dashboard
 
-Dieses Projekt stellt ein Dashboard für **F1 René** bereit. Es ermöglicht, die letzten Nachrichten, das Leaderboard und weitere relevante Informationen zu verfolgen.  
+Dieses Projekt stellt ein Dashboard für **F1 Rene** bereit. Es ermöglicht, die letzten Nachrichten, das Leaderboard und weitere relevante Informationen zu verfolgen.  
 
 ## Features
 
