@@ -6,23 +6,24 @@
   <title>Race – Dmytro</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      font-family: 'Arial', sans-serif;
+      background: #111;
       color: #fff;
-      text-align: center;
     }
     header {
-      padding: 3rem 1rem;
+      background: linear-gradient(90deg, #ff0000, #ff6600);
+      padding: 2rem;
+      text-align: center;
     }
     header h1 {
-      font-size: 3rem;
       margin: 0;
+      font-size: 3rem;
+      text-shadow: 2px 2px #000;
     }
     header p {
       font-size: 1.2rem;
-      color: #ccc;
+      color: #eee;
     }
     nav {
       margin-top: 1rem;
@@ -30,51 +31,95 @@
     nav a {
       margin: 0 1rem;
       text-decoration: none;
-      color: #00d9ff;
+      color: #fff;
       font-weight: bold;
-      transition: color 0.3s;
     }
     nav a:hover {
-      color: #ffcc00;
+      color: #ff0;
     }
     section {
-      padding: 3rem 1rem;
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      border-bottom: 2px solid #ff6600;
+      display: inline-block;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+    }
+    table, th, td {
+      border: 1px solid #fff;
+    }
+    th, td {
+      padding: 0.5rem;
+      text-align: center;
+    }
+    tr:nth-child(even) {
+      background: rgba(255,255,255,0.05);
     }
     footer {
-      background: #111;
+      text-align: center;
       padding: 1rem;
-      font-size: 0.9rem;
+      background: #222;
       color: #aaa;
+    }
+    .news-item {
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+      background: rgba(255,255,255,0.05);
+      border-left: 5px solid #ff6600;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>🏎️ Willkommen bei Race</h1>
-    <p>Die Homepage von Dmytro</p>
+    <h1>🏎️ Race – Motorsport News</h1>
+    <p>Die Homepage von Dmytro | F1 2025 Grid & News</p>
     <nav>
-      <a href="#about">Über mich</a>
-      <a href="#project">Projekt</a>
-      <a href="#contact">Kontakt</a>
+      <a href="#drivers">F1 Fahrer 2025</a>
+      <a href="#news">Motorsport News</a>
     </nav>
   </header>
 
-  <section id="about">
-    <h2>Über mich</h2>
-    <p>Ich bin Dmytro, Student und Motorsport-Fan 🚀.  
-    Diese Seite dokumentiert meine Projekte und meine Reise.</p>
+  <section id="drivers">
+    <h2>F1 Fahrer 2025</h2>
+    <table>
+      <tr>
+        <th>Position</th>
+        <th>Fahrer</th>
+        <th>Team</th>
+      </tr>
+      <tr><td>1</td><td>Max Verstappen</td><td>Red Bull</td></tr>
+      <tr><td>2</td><td>Lewis Hamilton</td><td>Mercedes</td></tr>
+      <tr><td>3</td><td>Charles Leclerc</td><td>Ferrari</td></tr>
+      <tr><td>4</td><td>George Russell</td><td>Mercedes</td></tr>
+      <tr><td>5</td><td>Carlos Sainz</td><td>Ferrari</td></tr>
+      <tr><td>6</td><td>Sergio Pérez</td><td>Red Bull</td></tr>
+      <tr><td>7</td><td>Lando Norris</td><td>McLaren</td></tr>
+      <tr><td>8</td><td>Oscar Piastri</td><td>McLaren</td></tr>
+      <tr><td>9</td><td>Fernando Alonso</td><td>Alpine</td></tr>
+      <tr><td>10</td><td>Pierre Gasly</td><td>Alpine</td></tr>
+      <!-- Du kannst hier die komplette Liste ergänzen -->
+    </table>
   </section>
 
-  <section id="project">
-    <h2>Mein Projekt</h2>
-    <p><strong>Race</strong> ist meine persönliche Homepage.  
-    Hier möchte ich Infos, Updates und Ideen sammeln.</p>
-  </section>
-
-  <section id="contact">
-    <h2>Kontakt</h2>
-    <p>Schreibe mir gerne eine Nachricht 📩</p>
-    <p><a href="mailto:divan4kkwork@gmail.com" style="color:#00d9ff;">📧 divan4kkwork@gmail.com</a></p>
+  <section id="news">
+    <h2>Motorsport News</h2>
+    <div class="news-item">
+      🏁 Max Verstappen gewinnt den Großen Preis von Monza 2025!
+    </div>
+    <div class="news-item">
+      🏎️ Ferrari zeigt neue Aerodynamik-Upgrades für die Saison 2025.
+    </div>
+    <div class="news-item">
+      🌍 Formel 1 plant neue Rennen in Asien und Afrika.
+    </div>
   </section>
 
   <footer>
@@ -82,3 +127,4 @@
   </footer>
 </body>
 </html>
+
