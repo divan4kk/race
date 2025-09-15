@@ -16,7 +16,7 @@ export default function Home() {
           🏎️ Rennfahrer-Kurs
         </h1>
         <p className="text-xl max-w-2xl mb-8">
-          Lerne, **schnell und sicher** zu fahren! Unsere Kurse bringen dich vom Anfänger zum Profi. 🚦
+          Lerne, <strong>schnell und sicher</strong> zu fahren! Unsere Kurse bringen dich vom Anfänger zum Profi. 🚦
         </p>
         <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-10 rounded-lg text-xl shadow-lg transition-transform transform hover:scale-105">
           Jetzt Anmelden
@@ -107,7 +107,7 @@ export default function Home() {
               key={i}
               className="bg-gray-800 p-8 rounded-2xl shadow-lg hover:scale-105 transition-transform"
             >
-              <p className="italic mb-4">"{t.text}"</p>
+              <p className="italic mb-4">{`"${t.text}"`}</p>
               <p className="font-bold">{t.name}</p>
             </div>
           ))}
