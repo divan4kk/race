@@ -32,4 +32,4 @@ Unsere Webseite ist modern und performant gebaut:
 1️⃣ Repository klonen:  
 
 ```bash
-git clone <dein-repo-url>
+git clone git@github.com:divan4kk/race.git
