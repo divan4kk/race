@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Image from 'next/image';
 import GlobeIcon from '../public/globe.svg';
 import NextIcon from '../public/next.svg';
@@ -6,6 +7,24 @@ import FileIcon from '../public/file.svg';
 import WindowIcon from '../public/window.svg';
 
 export default function Home() {
+  const testimonials = [
+    { text: 'Tolles Training! Ich fühle mich jetzt viel sicherer auf der Rennstrecke.', name: '- Jonas' },
+    { text: 'Die Trainer sind super professionell und geben tolle Tipps.', name: '- Lara' },
+    { text: 'Definitiv ein Muss für jeden Motorsport-Fan!', name: '- Tom' },
+  ];
+
+  const features = [
+    { icon: '📋', title: 'Kursübersicht', desc: 'Alle Kurse mit Dauer, Preis und Schwierigkeitsgrad auf einen Blick.' },
+    { icon: '🎥', title: 'Training Videos', desc: 'Sieh echte Trainingssessions und Tipps unserer Profis.' },
+    { icon: '✍️', title: 'Anmeldung', desc: 'Melde dich direkt online für deinen Kurs an – einfach und schnell.' },
+  ];
+
+  const trainers = [
+    { name: 'Max Mustermann', desc: 'Rennfahrer seit 10 Jahren, Kurventechnik & Geschwindigkeit.', img: FileIcon },
+    { name: 'Anna Fahrerin', desc: 'Profifahrerin, Expertin für Sicherheit & Trainingsmethoden.', img: GlobeIcon },
+    { name: 'Lukas Speed', desc: 'Motorsport-Coach, spezialisiert auf Starttechnik & Strategie.', img: WindowIcon },
+  ];
+
   return (
     <main className="min-h-screen font-sans text-white bg-gradient-to-b from-gray-900 to-gray-800">
       
@@ -25,11 +44,7 @@ export default function Home() {
 
       {/* Kurs Features */}
       <section className="py-16 px-6 grid md:grid-cols-3 gap-10">
-        {[
-          { icon: '📋', title: 'Kursübersicht', desc: 'Alle Kurse mit Dauer, Preis und Schwierigkeitsgrad auf einen Blick.' },
-          { icon: '🎥', title: 'Training Videos', desc: 'Sieh echte Trainingssessions und Tipps unserer Profis.' },
-          { icon: '✍️', title: 'Anmeldung', desc: 'Melde dich direkt online für deinen Kurs an – einfach und schnell.' },
-        ].map((feature) => (
+        {features.map((feature) => (
           <div
             key={feature.title}
             className="bg-gray-800 p-8 rounded-2xl shadow-lg hover:scale-105 transition-transform text-center"
@@ -45,11 +60,7 @@ export default function Home() {
       <section className="py-16 px-6 bg-gray-850 text-center">
         <h2 className="text-4xl font-bold mb-12">👨‍🏫 Unsere Trainer</h2>
         <div className="grid md:grid-cols-3 gap-10">
-          {[
-            { name: 'Max Mustermann', desc: 'Rennfahrer seit 10 Jahren, Kurventechnik & Geschwindigkeit.', img: FileIcon },
-            { name: 'Anna Fahrerin', desc: 'Profifahrerin, Expertin für Sicherheit & Trainingsmethoden.', img: GlobeIcon },
-            { name: 'Lukas Speed', desc: 'Motorsport-Coach, spezialisiert auf Starttechnik & Strategie.', img: WindowIcon },
-          ].map((trainer) => (
+          {trainers.map((trainer) => (
             <div
               key={trainer.name}
               className="bg-gray-800 p-6 rounded-2xl shadow-lg hover:scale-105 transition-transform"
@@ -98,11 +109,7 @@ export default function Home() {
       <section className="py-16 px-6 text-center">
         <h2 className="text-4xl font-bold mb-12">⭐ Testimonials</h2>
         <div className="grid md:grid-cols-3 gap-8">
-          {[
-            { text: 'Tolles Training! Ich fühle mich jetzt viel sicherer auf der Rennstrecke.', name: '– Jonas' },
-            { text: 'Die Trainer sind super professionell und geben tolle Tipps.', name: '– Lara' },
-            { text: 'Definitiv ein Muss für jeden Motorsport-Fan!', name: '– Tom' },
-          ].map((t, i) => (
+          {testimonials.map((t, i) => (
             <div
               key={i}
               className="bg-gray-800 p-8 rounded-2xl shadow-lg hover:scale-105 transition-transform"
