@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Rennfahrer-Kurs Webseite
 
-## Getting Started
+Willkommen auf der offiziellen Webseite für unseren Rennfahrer-Kurs! 🚗💨
 
-First, run the development server:
+Unsere Mission ist es, Motorsport-Begeisterten die Möglichkeit zu geben, ihre Fahrfähigkeiten auf die nächste Stufe zu bringen. Egal, ob Anfänger oder Fortgeschrittener – wir bieten professionelle Trainings in realen Rennbedingungen.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Funktionen der Webseite
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Kursübersicht: Entdecke alle verfügbaren Rennfahrerkurse und deren Inhalte.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Anmeldung: Melde dich direkt online für deinen gewünschten Kurs an.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Galerie & Videos: Sieh dir Bilder und Videos von unseren Trainingssessions an.
 
-## Learn More
+Kontakt: Stelle Fragen oder buche individuelle Trainingsstunden.
 
-To learn more about Next.js, take a look at the following resources:
+Blog & News: Bleibe über Events, Renntechniken und Tipps auf dem Laufenden.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Technologien
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Die Webseite wurde mit modernen Web-Technologien umgesetzt:
 
-## Deploy on Vercel
+Next.js – für schnelle und reaktive Webseiten
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+TypeScript – für sichere und saubere Code-Struktur
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+ESLint & Prettier – für sauberen, wartbaren Code
+
+PostCSS – für optimiertes Styling
+
+Vercel – für Hosting und Deployment
