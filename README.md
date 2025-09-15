@@ -1,30 +1,35 @@
-🏎️ Rennfahrer-Kurs Webseite 🏁
+# 🏎️ Rennfahrer-Kurs Webseite 🏁
 
-Willkommen auf der offiziellen Webseite für deinen Rennfahrer-Traum!
-Hier kannst du lernen, wie man richtig schnell und sicher auf der Rennstrecke fährt – egal ob Anfänger oder Profi. 🚦
+Willkommen auf der offiziellen Webseite für **deinen Rennfahrer-Traum!**  
+Hier kannst du lernen, wie man **richtig schnell und sicher** auf der Rennstrecke fährt – egal ob Anfänger oder Profi. 🚦
 
-🌟 Was wir bieten
+---
 
-Kursübersicht 📋 – Alle Rennfahrerkurse auf einen Blick.
+## 🌟 Was wir bieten
 
-Online-Anmeldung ✍️ – Einfach, schnell und direkt auf unserer Webseite.
+- **Kursübersicht 📋** – Alle Rennfahrerkurse auf einen Blick.  
+- **Online-Anmeldung ✍️** – Einfach, schnell und direkt auf unserer Webseite.  
+- **Galerie & Videos 🎥** – Sieh echte Trainingseinheiten in Aktion.  
+- **Kontakt & Support 📞** – Fragen? Wir helfen dir gern!  
+- **News & Blog 📰** – Tipps, Tricks und spannende Events im Motorsport.  
 
-Galerie & Videos 🎥 – Sieh echte Trainingseinheiten in Aktion.
+---
 
-Kontakt & Support 📞 – Fragen? Wir helfen dir gern!
+## 🚀 Technologien hinter der Webseite
 
-News & Blog 📰 – Tipps, Tricks und spannende Events im Motorsport.
+Unsere Webseite ist modern und performant gebaut:  
 
-🚀 Technologien hinter der Webseite
+- **Next.js ⚡** – Superschnelle, reaktive Seiten  
+- **TypeScript 🛡️** – Sauberer und sicherer Code  
+- **ESLint & Prettier ✨** – Perfekt formatierter Code  
+- **PostCSS 🎨** – Für schicke Styles und schnelle Ladezeiten  
+- **Vercel ☁️** – Einfaches Deployment  
 
-Unsere Webseite ist modern und performant gebaut:
+---
 
-Next.js ⚡ – Superschnelle, reaktive Seiten
+## 💻 Lokales Setup
 
-TypeScript 🛡️ – Sauberer und sicherer Code
+1️⃣ Repository klonen:  
 
-ESLint & Prettier ✨ – Perfekt formatierter Code
-
-PostCSS 🎨 – Für schicke Styles und schnelle Ladezeiten
-
-Vercel ☁️ – Einfaches Deployment
+```bash
+git clone <dein-repo-url>
