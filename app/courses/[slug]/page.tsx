@@ -1,26 +1,19 @@
 'use client';
 import { useState, ChangeEvent, FormEvent } from 'react';
+import { useParams } from 'next/navigation';
 
 const courses = {
   einsteiger: { name: 'Einsteiger', price: 99, description: '2 Stunden Training für Anfänger' },
   fortgeschritten: { name: 'Fortgeschritten', price: 179, description: '4 Stunden Training für Fortgeschrittene' },
-  profi: { name: 'Profi', price: 299, description: '8 Stunden Training für Profis' },
+  profi: { name: 'Profi', price: 299, description: '8 Stunden Training für Profis' }
 };
 
-interface FormState {
-  phone: string;
-  email: string;
-  card: string;
-}
-
-interface CoursePageProps {
-  params: { slug: keyof typeof courses };
-}
-
-export default function CoursePage({ params }: CoursePageProps) {
-  const { slug } = params;
+export default function CoursePage() {
+  const params = useParams();
+  const slug = params?.slug as keyof typeof courses;
   const course = courses[slug];
-  const [form, setForm] = useState<FormState>({ phone: '', email: '', card: '' });
+
+  const [form, setForm] = useState({ phone: '', email: '', card: '' });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) =>
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -33,6 +26,8 @@ export default function CoursePage({ params }: CoursePageProps) {
     alert(`Danke für den Kauf von ${course.name} (${course.price}€ + 19% MwSt)`);
   };
 
+  if (!course) return <p>Kurs nicht gefunden.</p>;
+
   return (
     <div className="container">
       <h1 style={{ fontSize: '2.5rem', textAlign: 'center' }}>{course.name}</h1>
@@ -44,13 +39,7 @@ export default function CoursePage({ params }: CoursePageProps) {
       >
         <input name="phone" placeholder="📞 +49 XXX XXXXXXX" value={form.phone} onChange={handleChange} />
         <input name="email" placeholder="✉️ Email" value={form.email} onChange={handleChange} />
-        <input
-          name="card"
-          placeholder="💳 XXXX XXXX XXXX XXXX"
-          value={form.card}
-          onChange={handleChange}
-          maxLength={19}
-        />
+        <input name="card" placeholder="💳 XXXX XXXX XXXX XXXX" value={form.card} onChange={handleChange} maxLength={19} />
         <button disabled={!valid} style={{ backgroundColor: valid ? '#e3342f' : '#666', color: 'white' }}>
           Kaufen
         </button>
