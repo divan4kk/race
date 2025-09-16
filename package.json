@@ -17,6 +17,9 @@
     "build": "next build",
     "start": "next start",
     "image": "node scripts/image.js"
-  }
+  },
+  "engines": {
+    "node": "20.x"
 }
 
+}
