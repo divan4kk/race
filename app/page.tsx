@@ -1,5 +1,7 @@
-/* eslint-disable react/no-unescaped-entities */
+'use client';
+
 import Image from 'next/image';
+import Link from 'next/link';
 import GlobeIcon from '../public/globe.svg';
 import NextIcon from '../public/next.svg';
 import VercelIcon from '../public/vercel.svg';
@@ -23,6 +25,12 @@ export default function Home() {
     { name: 'Max Mustermann', desc: 'Rennfahrer seit 10 Jahren, Kurventechnik & Geschwindigkeit.', img: FileIcon },
     { name: 'Anna Fahrerin', desc: 'Profifahrerin, Expertin für Sicherheit & Trainingsmethoden.', img: GlobeIcon },
     { name: 'Lukas Speed', desc: 'Motorsport-Coach, spezialisiert auf Starttechnik & Strategie.', img: WindowIcon },
+  ];
+
+  const courses = [
+    { slug: 'einsteiger', name: 'Einsteiger', duration: '2 Stunden Training', price: 99 },
+    { slug: 'fortgeschritten', name: 'Fortgeschritten', duration: '4 Stunden Training', price: 179 },
+    { slug: 'profi', name: 'Profi', duration: '8 Stunden Training', price: 299 },
   ];
 
   return (
@@ -79,22 +87,18 @@ export default function Home() {
       <section className="py-16 px-6 text-center">
         <h2 className="text-4xl font-bold mb-12">💰 Preise</h2>
         <div className="grid md:grid-cols-3 gap-8">
-          <div className="bg-gray-800 p-8 rounded-2xl shadow-lg hover:scale-105 transition-transform">
-            <h3 className="text-2xl font-semibold mb-2">Einsteiger</h3>
-            <p className="text-xl mb-2">2 Stunden Training</p>
-            <p className="text-2xl font-bold">99€</p>
-          </div>
-          <div className="bg-red-600 p-8 rounded-2xl shadow-xl hover:scale-105 transition-transform">
-            <h3 className="text-2xl font-semibold mb-2">Fortgeschritten</h3>
-            <p className="text-xl mb-2">4 Stunden Training</p>
-            <p className="text-2xl font-bold">179€</p>
-            <span className="block mt-2 text-lg font-semibold">💎 Bestes Angebot</span>
-          </div>
-          <div className="bg-gray-800 p-8 rounded-2xl shadow-lg hover:scale-105 transition-transform">
-            <h3 className="text-2xl font-semibold mb-2">Profi</h3>
-            <p className="text-xl mb-2">8 Stunden Training</p>
-            <p className="text-2xl font-bold">299€</p>
-          </div>
+          {courses.map((course) => (
+            <Link key={course.slug} href={`/courses/${course.slug}`}>
+              <div className={`cursor-pointer p-8 rounded-2xl shadow-lg hover:scale-105 transition-transform text-center ${course.slug === 'fortgeschritten' ? 'bg-red-600 shadow-xl' : 'bg-gray-800'}`}>
+                <h3 className="text-2xl font-semibold mb-2">{course.name}</h3>
+                <p className="text-xl mb-2">{course.duration}</p>
+                <p className="text-2xl font-bold">{course.price}€</p>
+                {course.slug === 'fortgeschritten' && (
+                  <span className="block mt-2 text-lg font-semibold">💎 Bestes Angebot</span>
+                )}
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 
