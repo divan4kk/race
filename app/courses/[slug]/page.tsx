@@ -1,8 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, use } from 'react';
 import { useRouter } from 'next/navigation';
-import { PhoneIcon, EnvelopeIcon, CreditCardIcon } from '@heroicons/react/24/solid';
 
 const courses = {
   einsteiger: {
@@ -42,11 +41,10 @@ function isFormValid({ phone, email, card }: { phone: string; email: string; car
   return phone.length > 4 && email.includes('@') && card.replace(/\s/g, '').length === 16;
 }
 
-export default function CoursePage({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+export default function CoursePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params); // unwrap Promise
   const course = courses[slug];
   const router = useRouter();
-
   const [form, setForm] = useState({ phone: '', email: '', card: '' });
 
   if (!course) return <p className="text-white text-center mt-20">Kurs nicht gefunden</p>;
@@ -67,13 +65,20 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center p-6 font-sans">
+      {/* Назва курсу */}
       <h1 className="text-4xl font-bold mb-4">{course.name}</h1>
+
+      {/* Опис курсу */}
       <p className="text-lg mb-6 text-gray-300 max-w-xl text-center">{course.description}</p>
+
+      {/* Ціна з ПДВ */}
       <p className="text-2xl mb-6 font-semibold">Preis inkl. MwSt: {(course.price * 1.19).toFixed(2)}€</p>
 
+      {/* Форма покупки */}
       <form className="flex flex-col gap-4 w-full max-w-md">
+        {/* Телефон */}
         <div className="relative">
-          <PhoneIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-500" />
+          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-xl">📞</span>
           <input
             type="tel"
             name="phone"
@@ -84,8 +89,9 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
           />
         </div>
 
+        {/* Email */}
         <div className="relative">
-          <EnvelopeIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-500" />
+          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-xl">✉️</span>
           <input
             type="email"
             name="email"
@@ -96,8 +102,9 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
           />
         </div>
 
+        {/* Картка */}
         <div className="relative">
-          <CreditCardIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-500" />
+          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-xl">💳</span>
           <input
             type="text"
             name="card"
@@ -109,6 +116,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
           />
         </div>
 
+        {/* Кнопка покупки */}
         <button
           type="button"
           onClick={handleBuy}
@@ -121,10 +129,12 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
         </button>
       </form>
 
+      {/* Базова ціна та ПДВ */}
       <p className="mt-4 text-gray-400 text-sm">
         Basispreis: {course.price}€ + 19% MwSt
       </p>
 
+      {/* Кнопка повернення */}
       <button
         onClick={() => router.back()}
         className="mt-6 underline text-gray-300 hover:text-white"
