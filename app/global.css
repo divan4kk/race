@@ -1,0 +1,49 @@
+/* app/globals.css */
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: linear-gradient(to bottom, #111, #222);
+  color: white;
+}
+
+button {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+input {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid #666;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card {
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  margin: 1rem;
+  transition: transform 0.2s;
+  background-color: #222;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.highlight {
+  background-color: #e3342f;
+  color: white;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+}

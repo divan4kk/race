@@ -1,146 +1,41 @@
 'use client';
-
-import { useState, use } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 const courses = {
-  einsteiger: {
-    name: 'Einsteiger',
-    price: 99,
-    description: 'Perfekt für Anfänger! Lerne die Grundlagen, Kurventechnik und sichere Fahrweise.'
-  },
-  fortgeschritten: {
-    name: 'Fortgeschritten',
-    price: 179,
-    description: 'Für Fahrer mit Erfahrung. Verbessere Geschwindigkeit, Technik und Rennstrategie.'
-  },
-  profi: {
-    name: 'Profi',
-    price: 299,
-    description: 'Intensives Training für Profis. Fokus auf Starttechnik, Rennstrategie und maximale Performance.'
-  }
+  einsteiger: { name: 'Einsteiger', price: 99, description: '2 Stunden Training für Anfänger' },
+  fortgeschritten: { name: 'Fortgeschritten', price: 179, description: '4 Stunden Training für Fortgeschrittene' },
+  profi: { name: 'Profi', price: 299, description: '8 Stunden Training für Profis' },
 };
 
-// Маска номера картки
-function formatCardNumber(value: string) {
-  return value.replace(/\D/g, '').replace(/(.{4})/g, '$1 ').trim();
-}
-
-// Маска телефону
-function formatPhone(value: string) {
-  const digits = value.replace(/\D/g, '');
-  if (digits.startsWith('49')) {
-    return '+' + digits;
-  } else {
-    return '+49 ' + digits;
-  }
-}
-
-// Просте валідовання форм
-function isFormValid({ phone, email, card }: { phone: string; email: string; card: string }) {
-  return phone.length > 4 && email.includes('@') && card.replace(/\s/g, '').length === 16;
-}
-
-export default function CoursePage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = use(params); // unwrap Promise
+export default function CoursePage({ params }: { params: { slug: string } }) {
+  const { slug } = params;
   const course = courses[slug];
-  const router = useRouter();
   const [form, setForm] = useState({ phone: '', email: '', card: '' });
 
-  if (!course) return <p className="text-white text-center mt-20">Kurs nicht gefunden</p>;
+  const handleChange = (e: any) => setForm({ ...form, [e.target.name]: e.target.value });
+  const valid = form.phone && form.email && form.card;
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let value = e.target.value;
-    if (e.target.name === 'card') value = formatCardNumber(value);
-    if (e.target.name === 'phone') value = formatPhone(value);
-    setForm({ ...form, [e.target.name]: value });
+  const handleBuy = (e: any) => {
+    e.preventDefault();
+    if (!valid) return;
+    alert(`Danke für den Kauf von ${course.name} (${course.price}€ + 19% MwSt)`);
   };
-
-  const handleBuy = () => {
-    const totalPrice = (course.price * 1.19).toFixed(2);
-    alert(`Kauf abgeschlossen! Preis inkl. MwSt: ${totalPrice}€`);
-  };
-
-  const valid = isFormValid(form);
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center p-6 font-sans">
-      {/* Назва курсу */}
-      <h1 className="text-4xl font-bold mb-4">{course.name}</h1>
+    <div className="container">
+      <h1 style={{ fontSize: '2.5rem', textAlign: 'center' }}>{course.name}</h1>
+      <p style={{ textAlign: 'center', margin: '1rem 0' }}>{course.description}</p>
 
-      {/* Опис курсу */}
-      <p className="text-lg mb-6 text-gray-300 max-w-xl text-center">{course.description}</p>
-
-      {/* Ціна з ПДВ */}
-      <p className="text-2xl mb-6 font-semibold">Preis inkl. MwSt: {(course.price * 1.19).toFixed(2)}€</p>
-
-      {/* Форма покупки */}
-      <form className="flex flex-col gap-4 w-full max-w-md">
-        {/* Телефон */}
-        <div className="relative">
-          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-xl">📞</span>
-          <input
-            type="tel"
-            name="phone"
-            placeholder="+49 XXXX XXXXXXX"
-            value={form.phone}
-            onChange={handleChange}
-            className="pl-10 p-3 rounded-lg text-black bg-gray-200 border border-gray-400 focus:outline-none focus:ring-2 focus:ring-red-600 w-full"
-          />
-        </div>
-
-        {/* Email */}
-        <div className="relative">
-          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-xl">✉️</span>
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={form.email}
-            onChange={handleChange}
-            className="pl-10 p-3 rounded-lg text-black bg-gray-200 border border-gray-400 focus:outline-none focus:ring-2 focus:ring-red-600 w-full"
-          />
-        </div>
-
-        {/* Картка */}
-        <div className="relative">
-          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-xl">💳</span>
-          <input
-            type="text"
-            name="card"
-            placeholder="XXXX XXXX XXXX XXXX"
-            value={form.card}
-            onChange={handleChange}
-            maxLength={19}
-            className="pl-10 p-3 rounded-lg text-black bg-gray-200 border border-gray-400 focus:outline-none focus:ring-2 focus:ring-red-600 w-full"
-          />
-        </div>
-
-        {/* Кнопка покупки */}
-        <button
-          type="button"
-          onClick={handleBuy}
-          disabled={!valid}
-          className={`py-4 px-6 rounded-lg font-bold text-xl mt-4 transition-transform transform hover:scale-105 w-full ${
-            valid ? 'bg-red-600 hover:bg-red-700 cursor-pointer' : 'bg-gray-500 cursor-not-allowed'
-          }`}
-        >
-          Kaufen
-        </button>
+      <form style={{ maxWidth: '400px', margin: '2rem auto', display: 'flex', flexDirection: 'column', gap: '1rem' }} onSubmit={handleBuy}>
+        <input name="phone" placeholder="📞 +49 XXX XXXXXXX" value={form.phone} onChange={handleChange} />
+        <input name="email" placeholder="✉️ Email" value={form.email} onChange={handleChange} />
+        <input name="card" placeholder="💳 XXXX XXXX XXXX XXXX" value={form.card} onChange={handleChange} maxLength={19} />
+        <button disabled={!valid} style={{ backgroundColor: valid ? '#e3342f' : '#666', color: 'white' }}>Kaufen</button>
       </form>
 
-      {/* Базова ціна та ПДВ */}
-      <p className="mt-4 text-gray-400 text-sm">
+      <p style={{ fontSize: '0.875rem', textAlign: 'center', color: '#aaa' }}>
         Basispreis: {course.price}€ + 19% MwSt
       </p>
-
-      {/* Кнопка повернення */}
-      <button
-        onClick={() => router.back()}
-        className="mt-6 underline text-gray-300 hover:text-white"
-      >
-        ← Zurück zu den Kursen
-      </button>
     </div>
   );
 }
