@@ -25,8 +25,12 @@ export default function Home() {
       {/* Hero Section */}
       <section className="hero">
         <h1>🏎️ Rennfahrer-Kurs</h1>
-        <p>Lerne, <strong>schnell und sicher</strong> zu fahren! Unsere Kurse bringen dich vom Anfänger zum Profi. 🚦</p>
-        <Link href="/courses/einsteiger"><button>Jetzt Anmelden</button></Link>
+        <p>
+          Lerne, <strong>schnell und sicher</strong> zu fahren! Unsere Kurse bringen dich vom Anfänger zum Profi. 🚦
+        </p>
+        <Link href="/courses/einsteiger">
+          <button>Jetzt Anmelden</button>
+        </Link>
       </section>
 
       {/* Kurs Section */}
@@ -50,22 +54,22 @@ export default function Home() {
       <section className="container">
         <h2 className="section-title">👨‍🏫 Unsere Trainer</h2>
         <div className="grid">
-          {trainers.map(t => (
-            <div key={t.name} className="card">
-              <h3>{t.name}</h3>
-              <p>{t.role}</p>
+          {trainers.map(trainer => (
+            <div key={trainer.name} className="card">
+              <h3>{trainer.name}</h3>
+              <p>{trainer.role}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Testimonials Section */}
       <section className="container">
         <h2 className="section-title">⭐ Testimonials</h2>
         <div className="grid">
-          {testimonials.map((t,i) => (
+          {testimonials.map((t, i) => (
             <div key={i} className="card">
-              <p>"{t.text}"</p>
+              <p>{t.text}</p>
               <p style={{ fontWeight: 'bold', marginTop: '1rem' }}>{t.name}</p>
             </div>
           ))}
