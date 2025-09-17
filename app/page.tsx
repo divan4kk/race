@@ -23,22 +23,9 @@ export default function Home() {
   return (
     <main>
       {/* Hero */}
-      <section
-        className="hero"
-        style={{
-          minHeight: '100vh',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'flex-start', // nach oben setzen
-          alignItems: 'center',
-          textAlign: 'center',
-          paddingTop: '6rem', // Abstand von oben
-          paddingLeft: '1rem',
-          paddingRight: '1rem'
-        }}
-      >
+      <section className="hero" style={{ textAlign: 'center', padding: '4rem 1rem' }}>
         <h1>🏎️ Rennfahrer-Kurs</h1>
-        <p style={{ maxWidth: '600px', margin: '1rem 0' }}>
+        <p style={{ maxWidth: '600px', margin: '1rem auto' }}>
           Lerne, <strong>schnell und sicher</strong> zu fahren!  
           Unsere Kurse bringen dich vom Anfänger zum Profi. 🚦
         </p>
