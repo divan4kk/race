@@ -23,13 +23,25 @@ export default function Home() {
   return (
     <main>
       {/* Hero */}
-      <section className="hero">
+      <section
+        className="hero"
+        style={{
+          minHeight: '100vh', // nimmt die ganze Höhe ein
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center', // zentriert vertikal
+          alignItems: 'center', // zentriert horizontal
+          textAlign: 'center',
+          padding: '2rem'
+        }}
+      >
         <h1>🏎️ Rennfahrer-Kurs</h1>
-        <p>
-          Lerne, <strong>schnell und sicher</strong> zu fahren! Unsere Kurse bringen dich vom Anfänger zum Profi. 🚦
+        <p style={{ maxWidth: '600px', margin: '1rem 0' }}>
+          Lerne, <strong>schnell und sicher</strong> zu fahren!  
+          Unsere Kurse bringen dich vom Anfänger zum Profi. 🚦
         </p>
         <a href="#kurse">
-          <button>Zu den Kursen</button>
+          <button style={{ marginTop: '1rem' }}>Zu den Kursen</button>
         </a>
       </section>
 
@@ -37,7 +49,7 @@ export default function Home() {
       <section
         id="kurse"
         className="container"
-        style={{ scrollMarginTop: '100px' }} // sorgt für extra Abstand beim Scrollen
+        style={{ scrollMarginTop: '100px' }}
       >
         <h2 className="section-title">💰 Unsere Kurse</h2>
         <div className="grid">
