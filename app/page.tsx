@@ -23,23 +23,18 @@ export default function Home() {
   return (
     <main>
       {/* Hero */}
-      <section className="hero" style={{ textAlign: 'center', padding: '4rem 1rem' }}>
+      <section className="hero" style={{ padding: '4rem 1rem', textAlign: 'center' }}>
         <h1>🏎️ Rennfahrer-Kurs</h1>
-        <p style={{ maxWidth: '600px', margin: '1rem auto' }}>
-          Lerne, <strong>schnell und sicher</strong> zu fahren!  
-          Unsere Kurse bringen dich vom Anfänger zum Profi. 🚦
+        <p>
+          Lerne, <strong>schnell und sicher</strong> zu fahren! Unsere Kurse bringen dich vom Anfänger zum Profi. 🚦
         </p>
         <a href="#kurse">
-          <button style={{ marginTop: '1rem' }}>Zu den Kursen</button>
+          <button>Zu den Kursen</button>
         </a>
       </section>
 
       {/* Kurse */}
-      <section
-        id="kurse"
-        className="container"
-        style={{ scrollMarginTop: '100px' }}
-      >
+      <section id="kurse" className="container" style={{ scrollMarginTop: '100px' }}>
         <h2 className="section-title">💰 Unsere Kurse</h2>
         <div className="grid">
           {courses.map(course => (
