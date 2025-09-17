@@ -26,13 +26,15 @@ export default function Home() {
       <section
         className="hero"
         style={{
-          minHeight: '100vh', // nimmt die ganze Höhe ein
+          minHeight: '100vh',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'center', // zentriert vertikal
-          alignItems: 'center', // zentriert horizontal
+          justifyContent: 'flex-start', // nach oben setzen
+          alignItems: 'center',
           textAlign: 'center',
-          padding: '2rem'
+          paddingTop: '6rem', // Abstand von oben
+          paddingLeft: '1rem',
+          paddingRight: '1rem'
         }}
       >
         <h1>🏎️ Rennfahrer-Kurs</h1>
