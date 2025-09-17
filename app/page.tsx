@@ -28,13 +28,13 @@ export default function Home() {
         <p>
           Lerne, <strong>schnell und sicher</strong> zu fahren! Unsere Kurse bringen dich vom Anfänger zum Profi. 🚦
         </p>
-        <Link href="/courses/einsteiger">
-          <button>Jetzt Anmelden</button>
-        </Link>
+        <a href="#kurse">
+          <button>Zu den Kursen</button>
+        </a>
       </section>
 
       {/* Kurse */}
-      <section className="container">
+      <section id="kurse" className="container">
         <h2 className="section-title">💰 Unsere Kurse</h2>
         <div className="grid">
           {courses.map(course => (
