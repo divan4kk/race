@@ -34,7 +34,11 @@ export default function Home() {
       </section>
 
       {/* Kurse */}
-      <section id="kurse" className="container">
+      <section
+        id="kurse"
+        className="container"
+        style={{ scrollMarginTop: '100px' }} // sorgt für extra Abstand beim Scrollen
+      >
         <h2 className="section-title">💰 Unsere Kurse</h2>
         <div className="grid">
           {courses.map(course => (
