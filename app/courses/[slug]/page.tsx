@@ -14,19 +14,26 @@ export default function CoursePage() {
   const course = courses[slug];
 
   const [form, setForm] = useState({ phone: '', email: '', card: '' });
+  const [showModal, setShowModal] = useState(false);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  const valid = form.phone && form.email && form.card;
+  const validEmail = /^\S+@\S+\.\S+$/.test(form.email);
+  const validPhone = /^\+49 \d{3,}$/.test(form.phone);
+  const validCard = /^\d{4} \d{4} \d{4} \d{4}$/.test(form.card);
+
+  const valid = validEmail && validPhone && validCard;
 
   const handleBuy = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!valid) return;
-    alert(`Danke für den Kauf von ${course.name} (${course.price}€ + 19% MwSt)`);
+    setShowModal(true);
   };
 
   if (!course) return <p>Kurs nicht gefunden.</p>;
+
+  const total = (course.price * 1.19).toFixed(2);
 
   return (
     <div className="container">
@@ -40,10 +47,20 @@ export default function CoursePage() {
         <input name="phone" placeholder="📞 +49 XXX XXXXXXX" value={form.phone} onChange={handleChange} />
         <input name="email" placeholder="✉️ Email" value={form.email} onChange={handleChange} />
         <input name="card" placeholder="💳 XXXX XXXX XXXX XXXX" value={form.card} onChange={handleChange} maxLength={19} />
-        <button disabled={!valid} style={{ backgroundColor: valid ? '#e3342f' : '#666', color: 'white' }}>
-          Kaufen
+        <button type="submit" disabled={!valid}>
+          Kaufen ({total}€ inkl. MwSt)
         </button>
       </form>
+
+      {showModal && (
+        <div className="modal-backdrop">
+          <div className="modal">
+            <h2>Danke für deinen Kauf!</h2>
+            <p>{course.name} für {total}€ wurde erfolgreich gebucht.</p>
+            <button onClick={() => setShowModal(false)}>Schließen</button>
+          </div>
+        </div>
+      )}
 
       <p style={{ fontSize: '0.875rem', textAlign: 'center', color: '#aaa' }}>
         Basispreis: {course.price}€ + 19% MwSt
